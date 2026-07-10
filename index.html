@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Asesor de Seguros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="app-shell">
+  <div class="page">
+    <!-- Franja izquierda (reserva el espacio; el sidebar real queda fijo fuera de aquí) -->
+    <div class="sidebar-spacer" aria-hidden="true"></div>
+
+    <!-- Contenido principal -->
+    <main class="main">
+      <section class="top">
+        <div>
+          <div class="title">Asesor de seguros</div>
+          <div class="subtitle">
+            Análisis inteligente en datos y perfil de cliente
+          </div>
+        </div>
+
+        <div class="risk-badge">
+          <span class="risk-dot">☘</span>
+          CLIENTE SIN RIESGO EN SCORE DE SEGUROS. ES POSIBLE OFERTAR EL PRODUCTO
+        </div>
+      </section>
+
+      <!-- Plan de Acción -->
+      <!-- <section class="action-plan">
+        <div class="action-plan-header">
+          <div class="action-plan-title">
+            <span class="action-plan-icon">ϟ</span>
+            <span>Plan de Acción</span>
+          </div>
+
+          <span class="action-plan-arrow">⌃</span>
+        </div>
+
+        <div class="action-plan-body">
+          <p class="action-plan-description">
+            Oportunidades de venta identificadas y priorizadas mediante
+            modelos predictivos y análisis avanzado de clientes.
+          </p>
+
+          <div class="action-plan-grid">
+            <div class="action-card">
+              <div class="action-number">1</div>
+              <div>
+                <div class="action-card-title">Seguro de Vida</div>
+              </div>
+            </div>
+
+            <div class="action-card">
+              <div class="action-number">2</div>
+              <div>
+                <div class="action-card-title">Seguro de Auto</div>
+              </div>
+            </div>
+
+            <div class="action-card">
+              <div class="action-number">3</div>
+              <div>
+                <div class="action-card-title">Seguro Hogar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Seguros express -->
+      <section class="express-section">
+        <div class="section-title">
+          <img class="express-icon" src="img/seguroexpressicon.jpg" alt="Seguros express">
+          Seguros express
+        </div>
+
+        <div class="express-row">
+          <div class="express-button" data-express-id="vacaciones" onclick="openModal()">
+            <span>Vacaciones Seguras</span>
+            <span>&gt;</span>
+          </div>
+
+          <div class="express-button" data-express-id="proteccion" onclick="openModal_pp()">
+            <span>Protección Personal</span>
+            <span>&gt;</span>
+          </div>
+
+          <div class="express-button" data-express-id="oncologico" onclick="openModal_vo()">
+            <span>Vida Oncológico</span>
+            <span>&gt;</span>
+          </div>
+
+          <div class="express-button" data-express-id="hogarinhab" onclick="openModal_hi()">
+            <span>Hogar Inhabitabilidad</span>
+            <span>&gt;</span>
+          </div>
+
+          <div class="express-button" data-express-id="cuentaprotegida" onclick="openModal_cp()">
+            <span>Cuenta Protegida</span>
+            <span>&gt;</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Oportunidades -->
+      <section>
+        <div class="section-title">
+          <span class="section-icon">☆</span>
+          Oportunidades Precotizadas
+        </div>
+
+        <div class="cards">
+          <!-- Vida -->
+          <article class="product-card life open">
+            <header class="card-header" onclick="toggleCard(this)">
+              <div class="product-title-wrap">
+                <div class="product-icon">♡</div>
+                <div class="product-title">Vida a Tu Medida</div>
+              </div>
+
+              <div class="meta">
+                <span class="priority">Prioridad Media</span>
+
+                <div class="stars-wrap">
+                  <div class="stars" id="vidaStars">
+                    ★★★<span class="star-empty">☆☆</span>
+                  </div>
+                  <div class="blue-line"></div>
+                </div>
+              </div>
+
+              <div class="chevron">⌃</div>
+            </header>
+
+            <div class="card-content">
+              <div class="card-body">
+                <ul class="bullets">
+                  <li>
+                    Con este seguro le estás dejando a tu familia la
+                    tranquilidad de estar protegida y poder seguir con su
+                    vida, incluso en tu ausencia. Capital asegurado
+                    <strong>UF 4.900.</strong>
+                  </li>
+                  <li>
+                    El capital óptimo propuesto considera tus deudas y
+                    pasivos, una estimación en función de tus ingresos sumado
+                    a las personas a tu cargo.
+                  </li>
+                  <li>
+                    <strong>Válido hasta el 29 de marzo 2027.</strong> Oferta
+                    disponible solo en seguros online.
+                  </li>
+                </ul>
+
+                <div class="price-panel">
+                  <div class="price-label">Valor cuota mensual</div>
+                  <div class="price">UF 2,67 <small>/ $108.113*</small></div>
+                  <div class="reference">*Valor referencial</div>
+
+                  <div class="discount">
+                    Precio normal: <s>UF 3,34 mensual</s>
+                    <span class="off">20% OFF</span>
+                  </div>
+
+                  <div class="cta" onclick="openModal_ref(&#39;Vida a Tu Medida&#39;)">Referir</div>
+                </div>
+              </div>
+
+              <footer class="card-links">
+                <span>Descargar protocolo de venta ⬇</span>
+                <span>Más información ⬇</span>
+              </footer>
+            </div>
+          </article>
+
+          <!-- Catastrófico -->
+          <article class="product-card health">
+            <header class="card-header" onclick="toggleCard(this)">
+              <div class="product-title-wrap">
+                <div class="product-icon">〽</div>
+                <div class="product-title">Catastrófico de Salud</div>
+              </div>
+
+              <div class="meta">
+                <span class="priority">Prioridad Media</span>
+
+                <div class="stars-wrap">
+                  <div class="stars">
+                    ★★★<span class="star-empty">☆☆</span>
+                  </div>
+                  <div class="blue-line"></div>
+                </div>
+              </div>
+
+              <div class="chevron">⌄</div>
+            </header>
+
+            <div class="card-content">
+              <div class="card-body">
+                <ul class="bullets">
+                  <li>
+                    Cobertura complementaria para eventos médicos de alto
+                    costo. Apoyo financiero ante diagnósticos o tratamientos
+                    relevantes.
+                  </li>
+                  <li>
+                    Recomendado para clientes que buscan protección adicional
+                    frente a gastos extraordinarios de salud.
+                  </li>
+                  <li>
+                    Oferta disponible para contratación asistida o derivación
+                    comercial.
+                  </li>
+                </ul>
+
+                <div class="price-panel">
+                  <div class="price-label">Valor cuota mensual</div>
+                  <div class="price">
+                    UF 1,89 <small>/ referencial</small>
+                  </div>
+                  <div class="reference">*Valor sujeto a evaluación</div>
+
+                  <div class="discount">
+                    Producto recomendado según perfil.
+                  </div>
+
+                  <div class="cta" onclick="openModal_ref(&#39;Catastrófico de Salud&#39;)">Referir</div>
+                </div>
+              </div>
+
+              <footer class="card-links">
+                <span>Descargar protocolo de venta ⬇</span>
+                <span>Más información ⬇</span>
+              </footer>
+            </div>
+          </article>
+
+          <!-- Hogar -->
+          <article class="product-card home">
+            <header class="card-header" onclick="toggleCard(this)">
+              <div class="product-title-wrap">
+                <div class="product-icon">▤</div>
+                <div class="product-title">Hogar a tu Medida</div>
+              </div>
+
+              <div class="meta">
+                <span class="priority">Prioridad Media</span>
+
+                <div class="stars-wrap">
+                  <div class="stars">
+                    ★★★<span class="star-empty">☆☆</span>
+                  </div>
+                  <div class="blue-line"></div>
+                </div>
+              </div>
+
+              <div class="chevron">⌄</div>
+            </header>
+
+            <div class="card-content">
+              <div class="card-body">
+                <ul class="bullets">
+                  <li>
+                    Protección para vivienda y bienes asociados ante eventos
+                    cubiertos.
+                  </li>
+                  <li>
+                    Producto recomendado para clientes con propiedades
+                    registradas.
+                  </li>
+                  <li>
+                    Permite reforzar la protección patrimonial del cliente.
+                  </li>
+                </ul>
+
+                <div class="price-panel">
+                  <div class="price-label">Valor cuota mensual</div>
+                  <div class="price">
+                    UF 0,95 <small>/ referencial</small>
+                  </div>
+                  <div class="reference">*Valor sujeto a evaluación</div>
+
+                  <div class="discount">
+                    Recomendado por propiedad registrada.
+                  </div>
+
+                  <div class="cta" onclick="openModal_ref(&#39;Hogar a tu Medida&#39;)">Referir</div>
+                </div>
+              </div>
+
+              <footer class="card-links">
+                <span>Descargar protocolo de venta ⬇</span>
+                <span>Más información ⬇</span>
+              </footer>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <aside class="simulation-panel">
+    <div class="simulation-panel-header">
+      <span>Simulación</span>
+      <strong>Controles</strong>
+    </div>
+    <div class="simulation-panel-body">
+      <label class="simulation-switch-row">
+        <span>Precotizados con 5 estrellas</span>
+        <input id="fiveStarsToggle" type="checkbox" role="switch" onchange="toggleFiveStarsSimulation(this.checked)">
+        <span class="simulation-switch" aria-hidden="true"></span>
+      </label>
+      <p class="simulation-help-text">
+        Cuando una oferta precotizada tiene 5 estrellas, los seguros express se ocultan para potenciar el referir el precotizado.
+      <br> Esta opción se debe poder gestionar desde el admin en precotizados para activar/desactivar esta regla.
+      </p>
+
+      <div class="simulation-divider"></div>
+
+      <div class="simulation-control-group">
+        <div class="simulation-control-title">Seguros express</div>
+        <p class="simulation-help-text">
+          Esta opción debe ser administrable en admin de precotizados y permite mostrar/ocultar el botón de contratación del seguro express y ordenarlo de acuerdo a necesidades del negocio.
+        </p>
+
+        <div class="express-control-row">
+          <label>
+            <input type="checkbox" data-express-toggle="vacaciones" checked="" onchange="updateExpressControls()">
+            <span>Vacaciones Seguras</span>
+          </label>
+          <select data-express-order="vacaciones" onchange="updateExpressControls()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="express-control-row">
+          <label>
+            <input type="checkbox" data-express-toggle="proteccion" checked="" onchange="updateExpressControls()">
+            <span>Protección Personal</span>
+          </label>
+          <select data-express-order="proteccion" onchange="updateExpressControls()">
+            <option value="1">1</option>
+            <option value="2" selected="">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="express-control-row">
+          <label>
+            <input type="checkbox" data-express-toggle="oncologico" checked="" onchange="updateExpressControls()">
+            <span>Vida Oncológico</span>
+          </label>
+          <select data-express-order="oncologico" onchange="updateExpressControls()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected="">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="express-control-row">
+          <label>
+            <input type="checkbox" data-express-toggle="hogarinhab" checked="" onchange="updateExpressControls()">
+            <span>Hogar Inhabitabilidad</span>
+          </label>
+          <select data-express-order="hogarinhab" onchange="updateExpressControls()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected="">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="express-control-row">
+          <label>
+            <input type="checkbox" data-express-toggle="cuentaprotegida" checked="" onchange="updateExpressControls()">
+            <span>Cuenta Protegida</span>
+          </label>
+          <select data-express-order="cuentaprotegida" onchange="updateExpressControls()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected="">5</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="simulation-divider"></div>
+
+      <div class="simulation-control-group">
+        <div class="simulation-control-title">Noticias de Seguros</div>
+        <p class="simulation-help-text">
+          Administra las noticias que ve el ejecutivo en el panel izquierdo.
+        </p>
+
+        <div id="adminNewsList" class="admin-news-list"></div>
+
+        <form class="admin-news-form" onsubmit="addNewsItem(event)">
+          <input id="adminNewsInput" type="text" placeholder="Agregar noticia..." autocomplete="off">
+          <div class="admin-news-form-row">
+            <label class="admin-news-photo-input">
+              <input id="adminNewsImageInput" type="file" accept="image/*" onchange="updateNewsPhotoLabel(this)">
+              <span id="adminNewsPhotoLabel">Subir foto</span>
+            </label>
+            <button type="submit">Agregar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </aside>
+  </div>
+
+  <aside id="sidebarFixed" class="sidebar">
+    <div>
+      <div class="profile-header">
+        <div class="user-icon"></div>
+
+        <div>
+          <div class="client-name">
+            CAMILO ERNESTO<br>
+            LARRAIN SANCHEZ
+          </div>
+          <div class="rut">RUT: 10000000-0</div>
+        </div>
+      </div>
+
+      <div class="client-grid">
+        <div class="client-field">
+          <label>Edad:</label>
+          <strong>61</strong>
+        </div>
+
+        <div class="client-field">
+          <label>Estado Civil:</label>
+          <strong>Casado</strong>
+        </div>
+
+        <div class="client-field">
+          <label>Hijos:</label>
+          <strong>6</strong>
+        </div>
+
+        <div class="client-field">
+          <label>Propiedades:</label>
+          <strong>1</strong>
+        </div>
+      </div>
+
+      <div class="sidebar-notes">
+        <div class="sidebar-notes-title">Noticias de Seguros</div>
+
+        <div id="sidebarNotesList" class="sidebar-notes-list"></div>
+      </div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="side-button side-button-refer" onclick="openModal_ref()">
+        <strong>Referir</strong>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="side-button">
+        SEGUROS <strong>ONLINE 2.0</strong>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="side-button">
+        ◒ <strong>Autocompara</strong>
+        <span class="arrow">›</span>
+      </div>
+    </div>
+  </aside>
+
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-backdrop" onclick="closeModal()"></div>
+      <div class="modal-box travel-modal">
+        <div class="travel-modal-header">
+          <div>
+            <div class="travel-eyebrow">Contratación express</div>
+            <div class="travel-title">Seguro Vacaciones Seguras</div>
+          </div>
+          <button class="modal-close travel-close" type="button" onclick="closeModal()" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="travel-modal-body">
+          <section class="travel-summary">
+            <div class="travel-copy travel-script">
+              <span class="travel-pill">Guion sugerido</span>
+              <h3>Seguro de viaje por $22.439 pago único</h3>
+              <p>
+                "Le puedo ofrecer un seguro simple para su viaje, con asistencia
+                médica, apoyo por extensión de estadía y cobertura por pérdida
+                de maleta."
+              </p>
+            </div>
+
+            <div class="travel-form-grid">
+              <label class="travel-field travel-field-wide">
+                <span>Destino</span>
+                <select>
+                  <option>Selecciona destino</option>
+                  <option>Argentina</option>
+                  <option>Brasil</option>
+                  <option>Europa</option>
+                  <option>Estados Unidos</option>
+                </select>
+              </label>
+
+              <label class="travel-field">
+                <span>Inicio</span>
+                <input id="travelStartDate" type="text" placeholder="DD/MM/AAAA">
+              </label>
+
+              <label class="travel-field">
+                <span>Fin</span>
+                <input id="travelEndDate" type="text" placeholder="DD/MM/AAAA">
+              </label>
+
+              <div class="travel-counter">
+                <span>Menores</span>
+                <div class="travel-stepper">
+                  <button type="button" onclick="changeTravelerCount(&#39;travelMinorCount&#39;, -1, 0)">-</button>
+                  <strong id="travelMinorCount">0</strong>
+                  <button type="button" onclick="changeTravelerCount(&#39;travelMinorCount&#39;, 1, 0)">+</button>
+                </div>
+              </div>
+
+              <div class="travel-counter">
+                <span>Adultos</span>
+                <div class="travel-stepper">
+                  <button type="button" onclick="changeTravelerCount(&#39;travelAdultCount&#39;, -1, 1)">-</button>
+                  <strong id="travelAdultCount">1</strong>
+                  <button type="button" onclick="changeTravelerCount(&#39;travelAdultCount&#39;, 1, 1)">+</button>
+                </div>
+              </div>
+            </div>
+                        <div class="personal-data-grid">
+              <div>
+                <span>Cliente</span>
+                <strong>CAMILO LARRAIN SANCHEZ</strong>
+              </div>
+              <div>
+                <span>Medio de pago</span>
+                <strong>Cuenta Santander</strong>
+              </div>
+              <div>
+                <span>Día de cobro</span>
+                <strong>Día 6 de cada mes</strong>
+              </div>
+              <div>
+                <span>Estado</span>
+                <strong>Listo para contratar</strong>
+              </div>
+            </div>
+
+          </section>
+
+          <aside class="travel-plan-card">
+            <div class="travel-plan-name">PLAN 1 600</div>
+            <div class="travel-plan-tag">Recomendado para cierre rápido</div>
+            <div class="travel-price">$22.439</div>
+            <div class="travel-uf">UF 0,55 pago único</div>
+            <div class="travel-discount">15% dcto.</div>
+
+            <div class="travel-coverage">
+              <div><strong>Información clave</strong><strong>UF 600</strong></div>
+              <div><span>Asistencia médica</span><span>Incluida</span></div>
+              <div><span>Prolongación de estadía</span><span>Incluida</span></div>
+              <div><span>Pérdida de maleta</span><span>Incluida</span></div>
+            </div>
+            <label class="personal-mandate">
+              <input type="checkbox">
+              <span>Acepta mandato de pago automático</span>
+            </label>
+            <button class="travel-primary" type="button" onclick="closeModal()">
+              Confirmar contratación
+            </button>
+            <button class="travel-secondary" type="button">
+              Ver detalles y coberturas
+            </button>
+          </aside>
+        </div>
+
+        <div class="travel-modal-footer">
+          <span>Sin cobertura Unión Europea</span>
+          <span>Emisión inmediata con pago único</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalOverlay_protper" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-backdrop" onclick="closeModal_pp()"></div>
+      <div class="modal-box personal-modal">
+        <div class="travel-modal-header">
+          <div>
+            <div class="travel-eyebrow">Contratación express</div>
+            <div class="travel-title">Seguro Protección Personal</div>
+          </div>
+          <button class="modal-close travel-close" type="button" onclick="closeModal_pp()" aria-label="Cerrar">×</button>
+        </div>
+        <div class="personal-modal-body">
+          <section class="personal-summary">
+            <div class="travel-copy travel-script">
+              <span class="travel-pill">Guion sugerido</span>
+              <h3>Seguro de protección personal por $4.900 mensual</h3>
+              <p>
+                "Le puedo ofrecer una cobertura simple ante robo, hurto o uso
+                forzado de medios de pago, con cargo mensual a su cuenta Santander."
+              </p>
+            </div>
+
+            <div class="personal-plan-options">
+              <div class="personal-option active">
+                <strong>Plan 200</strong>
+                <span>Desde $4.900</span>
+              </div>
+              <div class="personal-option">
+                <strong>Plan 500</strong>
+                <span>Desde $8.980</span>
+              </div>
+              <div class="personal-option">
+                <strong>Plan 1000</strong>
+                <span>Desde $13.060</span>
+              </div>
+            </div>
+
+            <div class="personal-data-grid">
+              <div>
+                <span>Cliente</span>
+                <strong>CAMILO LARRAIN SANCHEZ</strong>
+              </div>
+              <div>
+                <span>Medio de pago</span>
+                <strong>Cuenta Santander</strong>
+              </div>
+              <div>
+                <span>Día de cobro</span>
+                <strong>Día 6 de cada mes</strong>
+              </div>
+              <div>
+                <span>Mandato</span>
+                <strong>Pendiente de aceptar</strong>
+              </div>
+            </div>
+          </section>
+
+          <aside class="personal-plan-card">
+            <div class="travel-plan-name">PLAN 200</div>
+            <div class="travel-plan-tag">Recomendado para cierre rápido</div>
+            <div class="travel-price">$4.900</div>
+            <div class="travel-uf">UF 0,12 mensual</div>
+
+            <div class="travel-coverage personal-coverage">
+              <div><strong>Información clave</strong><strong>Capital</strong></div>
+              <div><span>Compra o giro por violencia</span><span>UF 200</span></div>
+              <div><span>Robo, hurto o extravío de cheques</span><span>UF 200</span></div>
+              <div><span>Robo posterior a giro</span><span>UF 20</span></div>
+            </div>
+
+            <label class="personal-mandate">
+              <input type="checkbox">
+              <span>Acepta mandato de pago automático</span>
+            </label>
+
+            <button class="travel-primary" type="button" onclick="closeModal_pp()">
+              Confirmar contratación
+            </button>
+            <button class="travel-secondary" type="button">
+              Ver condiciones
+            </button>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalOverlay_vidaonc" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-backdrop" onclick="closeModal_ov()"></div>
+      <div class="modal-box personal-modal">
+        <div class="travel-modal-header oncology-header">
+          <div>
+            <div class="travel-eyebrow oncology-eyebrow">Contratación express</div>
+            <div class="travel-title">Seguro de Vida + Oncológico</div>
+          </div>
+          <button class="modal-close travel-close" type="button" onclick="closeModal_ov()" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="personal-modal-body oncology-modal-body">
+          <section class="personal-summary">
+            <div class="travel-copy travel-script oncology-copy">
+              <span class="travel-pill oncology-pill">Guion sugerido</span>
+              <h3>Seguro vida + oncológico por $5.720 mensual</h3>
+              <p>
+                "Le puedo ofrecer un seguro que entrega apoyo económico ante
+                diagnóstico de cáncer primario y también cobertura por fallecimiento."
+              </p>
+            </div>
+
+            <div class="oncology-health-box">
+              <div>
+                <strong>Declaración personal de salud</strong>
+                <span>Confirma si existen antecedentes oncológicos vigentes.</span>
+              </div>
+              <div class="oncology-radio-group">
+                <label><input type="radio" name="oncologyHealth"> Si</label>
+                <label><input type="radio" name="oncologyHealth" checked=""> No</label>
+              </div>
+            </div>
+
+            <label class="personal-mandate oncology-authorization">
+              <input type="checkbox">
+              <span>He leído y acepto la autorización especial de salud.</span>
+            </label>
+
+            <div class="personal-data-grid">
+              <div>
+                <span>Cliente</span>
+                <strong>CAMILO LARRAIN SANCHEZ</strong>
+              </div>
+              <div>
+                <span>Medio de pago</span>
+                <strong>Cuenta Santander</strong>
+              </div>
+              <div>
+                <span>Día de cobro</span>
+                <strong>Día 6 de cada mes</strong>
+              </div>
+              <div>
+                <span>Estado</span>
+                <strong>Listo para contratar</strong>
+              </div>
+            </div>
+          </section>
+
+          <aside class="personal-plan-card oncology-plan-card">
+            <div class="travel-plan-name">PLAN 1</div>
+            <div class="travel-plan-tag oncology-tag">Recomendado para cierre rápido</div>
+            <div class="travel-price oncology-price">$5.720</div>
+            <div class="travel-uf">UF 0,14 mensual</div>
+
+            <div class="travel-coverage personal-coverage">
+              <div><strong>Información clave</strong><strong>Capital</strong></div>
+              <div><span>Diagnóstico de cáncer primario</span><span>UF 150</span></div>
+              <div><span>Fallecimiento del asegurado</span><span>UF 150</span></div>
+            </div>
+            <label class="personal-mandate">
+              <input type="checkbox">
+              <span>Acepta mandato de pago automático</span>
+            </label>
+            <button class="travel-primary oncology-primary" type="button" onclick="closeModal_ov()">
+              Confirmar contratación
+            </button>
+            <button class="travel-secondary oncology-secondary" type="button">
+              Ver declaración y condiciones
+            </button>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalOverlay_hogarinhab" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-backdrop" onclick="closeModal_hi()"></div>
+      <div class="modal-box personal-modal">
+        <div class="travel-modal-header">
+          <div>
+            <div class="travel-eyebrow">Contratación express</div>
+            <div class="travel-title">Seguro Hogar Inhabitabilidad</div>
+          </div>
+          <button class="modal-close travel-close" type="button" onclick="closeModal_hi()" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="personal-modal-body">
+          <section class="personal-summary">
+            <div class="travel-copy travel-script">
+              <span class="travel-pill">Guion sugerido</span>
+              <h3>Seguro de inhabitabilidad del hogar por $6.300 mensual</h3>
+              <p>
+                "Le puedo ofrecer una cobertura que le entrega alojamiento
+                temporal y traslado de enseres si su vivienda queda
+                inhabitable por incendio, filtración u otro daño estructural
+                cubierto."
+              </p>
+            </div>
+
+            <div class="oncology-health-box">
+              <div>
+                <strong>Declaración del estado de la vivienda</strong>
+                <span>Confirma si la propiedad presenta daños estructurales vigentes.</span>
+              </div>
+              <div class="oncology-radio-group">
+                <label><input type="radio" name="hogarInhabState"> Si</label>
+                <label><input type="radio" name="hogarInhabState" checked=""> No</label>
+              </div>
+            </div>
+
+            <div class="personal-data-grid">
+              <div>
+                <span>Cliente</span>
+                <strong>CAMILO LARRAIN SANCHEZ</strong>
+              </div>
+              <div>
+                <span>Medio de pago</span>
+                <strong>Cuenta Santander</strong>
+              </div>
+              <div>
+                <span>Día de cobro</span>
+                <strong>Día 6 de cada mes</strong>
+              </div>
+              <div>
+                <span>Estado</span>
+                <strong>Listo para contratar</strong>
+              </div>
+            </div>
+          </section>
+
+          <aside class="personal-plan-card">
+            <div class="travel-plan-name">PLAN HOGAR 300</div>
+            <div class="travel-plan-tag">Recomendado para cierre rápido</div>
+            <div class="travel-price">$6.300</div>
+            <div class="travel-uf">UF 0,16 mensual</div>
+
+            <div class="travel-coverage personal-coverage">
+              <div><strong>Información clave</strong><strong>Capital</strong></div>
+              <div><span>Alojamiento temporal</span><span>UF 40</span></div>
+              <div><span>Traslado de enseres</span><span>UF 15</span></div>
+              <div><span>Gastos de emergencia</span><span>UF 10</span></div>
+            </div>
+            <label class="personal-mandate">
+              <input type="checkbox">
+              <span>Acepta mandato de pago automático</span>
+            </label>
+            <button class="travel-primary" type="button" onclick="closeModal_hi()">
+              Confirmar contratación
+            </button>
+            <button class="travel-secondary" type="button">
+              Ver declaración y condiciones
+            </button>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalOverlay_cuentaprotegida" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-backdrop" onclick="closeModal_cp()"></div>
+      <div class="modal-box personal-modal">
+        <div class="travel-modal-header">
+          <div>
+            <div class="travel-eyebrow">Contratación express</div>
+            <div class="travel-title">Seguro Cuenta Protegida</div>
+          </div>
+          <button class="modal-close travel-close" type="button" onclick="closeModal_cp()" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="personal-modal-body">
+          <section class="personal-summary">
+            <div class="travel-copy travel-script">
+              <span class="travel-pill">Guion sugerido</span>
+              <h3>Seguro cuenta protegida por $3.500 mensual</h3>
+              <p>
+                "Le puedo ofrecer cobertura ante cargos no reconocidos,
+                phishing y vaciamiento de cuenta, con reembolso rápido y
+                monitoreo de movimientos."
+              </p>
+            </div>
+
+            <div class="personal-plan-options">
+              <div class="personal-option active">
+                <strong>Plan Basic</strong>
+                <span>Desde $3.500</span>
+              </div>
+              <div class="personal-option">
+                <strong>Plan Plus</strong>
+                <span>Desde $5.900</span>
+              </div>
+              <div class="personal-option">
+                <strong>Plan Total</strong>
+                <span>Desde $8.200</span>
+              </div>
+            </div>
+
+            <div class="personal-data-grid">
+              <div>
+                <span>Cliente</span>
+                <strong>CAMILO LARRAIN SANCHEZ</strong>
+              </div>
+              <div>
+                <span>Medio de pago</span>
+                <strong>Cuenta Santander</strong>
+              </div>
+              <div>
+                <span>Día de cobro</span>
+                <strong>Día 6 de cada mes</strong>
+              </div>
+              <div>
+                <span>Mandato</span>
+                <strong>Pendiente de aceptar</strong>
+              </div>
+            </div>
+          </section>
+
+          <aside class="personal-plan-card">
+            <div class="travel-plan-name">PLAN BASIC</div>
+            <div class="travel-plan-tag">Recomendado para cierre rápido</div>
+            <div class="travel-price">$3.500</div>
+            <div class="travel-uf">UF 0,09 mensual</div>
+
+            <div class="travel-coverage personal-coverage">
+              <div><strong>Información clave</strong><strong>Capital</strong></div>
+              <div><span>Cargos no reconocidos</span><span>UF 100</span></div>
+              <div><span>Phishing y suplantación</span><span>UF 50</span></div>
+              <div><span>Vaciamiento de cuenta</span><span>UF 150</span></div>
+            </div>
+            <label class="personal-mandate">
+              <input type="checkbox">
+              <span>Acepta mandato de pago automático</span>
+            </label>
+            <button class="travel-primary" type="button" onclick="closeModal_cp()">
+              Confirmar contratación
+            </button>
+            <button class="travel-secondary" type="button">
+              Ver condiciones
+            </button>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modalOverlay_ref" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-backdrop" onclick="closeModal_ref()"></div>
+      <div class="modal-box referral-modal">
+        <div class="travel-modal-header referral-header">
+          <div>
+            <div class="travel-eyebrow">Gestión comercial</div>
+            <div class="travel-title">Crear referido</div>
+          </div>
+          <button class="modal-close travel-close" type="button" onclick="closeModal_ref()" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="referral-modal-body referral-modal-body-single">
+          <section class="referral-summary">
+            <div class="travel-copy referral-copy">
+              <span class="travel-pill">Datos prellenados</span>
+              <h3>Confirma la información del cliente</h3>
+              <p>
+                Revisa los datos principales, agrega una observación comercial
+                y crea el referido para seguimiento.
+              </p>
+            </div>
+
+            <div class="referral-grid">
+              <label class="referral-field">
+                <span>RUT</span>
+                <input type="text" value="10000000-0">
+              </label>
+
+              <label class="referral-field">
+                <span>Nombre completo</span>
+                <input type="text" value="CAMILO ERNESTO LARRAIN SANCHEZ">
+              </label>
+
+              <label class="referral-field referral-field-wide">
+                <span>Dirección</span>
+                <input type="text" value="BERTA CORREA 1791 CASA 74">
+              </label>
+
+              <label class="referral-field">
+                <span>Comuna</span>
+                <input type="text" value="HUECHURABA">
+              </label>
+
+              <label class="referral-field">
+                <span>Producto</span>
+                <select id="referralProduct" required>
+                  <option value="" disabled selected>Selecciona un producto</option>
+                  <option>Vida a tu Medida</option>
+                  <option>Catastrófico de Salud</option>
+                  <option>Oncológico UC</option>
+                  <option>Accidentes con Asistencia Dental</option>
+                  <option>Accidentes con Urgencias Médicas</option>
+                  <option>Hospitalización</option>
+                  <option>Complementario UC</option>
+                  <option>Complementario Bupa Pyme</option>
+                  <option>Viajero Frecuente</option>
+                  <option>Viaje Larga Estadía</option>
+                  <option>Hogar a tu Medida</option>
+                  <option>Empresa Protegida</option>
+                  <option>Cuenta Protegida</option>
+                </select>
+              </label>
+
+              <label class="referral-field referral-field-wide">
+                <span>Observaciones</span>
+                <textarea id="referralObservation" placeholder="Ingresa comentarios relevantes para el ejecutivo que gestionará el referido"></textarea>
+              </label>
+            </div>
+          </section>
+        </div>
+
+        <div class="referral-actions">
+          <button class="referral-cancel" type="button" onclick="closeModal_ref()">
+            Cancelar
+          </button>
+          <button class="travel-primary referral-primary" type="button" onclick="submitReferral()">
+            Crear referido
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+
+
+
+
+</body></html>
