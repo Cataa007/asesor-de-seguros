@@ -1,0 +1,15 @@
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d8ee8"/>
+      <stop offset="100%" stop-color="#2477c4"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="260" fill="url(#bg)"/>
+  <circle cx="560" cy="40" r="90" fill="#ffffff" opacity="0.08"/>
+  <circle cx="60" cy="230" r="70" fill="#ffffff" opacity="0.08"/>
+  <text x="40" y="115" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="900" fill="#ffffff">20% DCTO</text>
+  <text x="40" y="160" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#eaf4ff">Seguros de Vida · hasta fin de mes</text>
+  <rect x="40" y="190" width="150" height="34" rx="17" fill="#ffffff"/>
+  <text x="115" y="212" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="800" fill="#0d5fa8">Vida a tu Medida</text>
+</svg>

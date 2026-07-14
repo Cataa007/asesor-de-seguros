@@ -21,16 +21,22 @@ window.addEventListener("resize", syncSidebar);
 syncSidebar();
 
 let newsItems = [
-  { text: "Nueva campaña: 20% dcto. en seguros de vida hasta fin de mes.", imageUrl: null },
+  { text: "Nueva campaña: 20% dcto. en seguros de vida hasta fin de mes.", imageUrl: "img/noticia-ejemplo.svg" },
   { text: "Actualización normativa: cambios en pólizas de salud desde julio.", imageUrl: null },
 ];
 
 function renderNewsList() {
   const sidebarList = document.getElementById("sidebarNotesList");
   const adminList = document.getElementById("adminNewsList");
+  const badge = document.getElementById("sidebarNotesBadge");
 
   if (!sidebarList || !adminList) {
     return;
+  }
+
+  if (badge) {
+    badge.textContent = newsItems.length;
+    badge.classList.toggle("has-count", newsItems.length > 0);
   }
 
   sidebarList.innerHTML = "";
@@ -53,6 +59,8 @@ function renderNewsList() {
       sidebarImage.className = "sidebar-note-image";
       sidebarImage.src = news.imageUrl;
       sidebarImage.alt = "";
+      sidebarImage.style.cursor = "zoom-in";
+      sidebarImage.onclick = () => openImageLightbox(news.imageUrl);
       sidebarItem.appendChild(sidebarImage);
     }
 
@@ -162,6 +170,16 @@ function showModal(id) {
 
 function hideModal(id) {
   document.getElementById(id).style.display = "none";
+}
+
+function openImageLightbox(src) {
+  const img = document.getElementById("imageLightboxImg");
+  img.src = src;
+  showModal("imageLightbox");
+}
+
+function closeImageLightbox() {
+  hideModal("imageLightbox");
 }
 
 function openModal() {

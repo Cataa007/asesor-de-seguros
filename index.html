@@ -424,7 +424,7 @@
   </div>
 
   <aside id="sidebarFixed" class="sidebar">
-    <div>
+    <div class="sidebar-top">
       <div class="profile-header">
         <div class="user-icon"></div>
 
@@ -460,7 +460,10 @@
       </div>
 
       <div class="sidebar-notes">
-        <div class="sidebar-notes-title">Noticias de Seguros</div>
+        <div class="sidebar-notes-title">
+          <span>Noticias de Seguros</span>
+          <span id="sidebarNotesBadge" class="sidebar-notes-badge"></span>
+        </div>
 
         <div id="sidebarNotesList" class="sidebar-notes-list"></div>
       </div>
@@ -483,6 +486,11 @@
       </div>
     </div>
   </aside>
+
+  <div id="imageLightbox" class="image-lightbox" onclick="closeImageLightbox()">
+    <button class="image-lightbox-close" type="button" onclick="closeImageLightbox()" aria-label="Cerrar imagen">×</button>
+    <img id="imageLightboxImg" src="" alt="Noticia ampliada" onclick="event.stopPropagation()">
+  </div>
 
   <div id="modalOverlay" class="modal-overlay">
     <div class="modal-container">
