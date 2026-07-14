@@ -1117,6 +1117,26 @@
       }
     }
 
+    @media (max-width: 700px) {
+      .page {
+        flex-direction: column;
+      }
+
+      .sidebar-spacer {
+        display: none;
+      }
+
+      #sidebarFixed.sidebar-inline {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        overflow: visible;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
 /* Modal and express product styles */
 .modal-overlay {
   position: fixed;

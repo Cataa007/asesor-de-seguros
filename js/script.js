@@ -1,8 +1,15 @@
+const sidebarMobileQuery = window.matchMedia("(max-width: 700px)");
+
 function syncSidebar() {
-  const spacer = document.querySelector(".sidebar-spacer");
   const sidebar = document.getElementById("sidebarFixed");
 
-  if (!spacer || !sidebar) {
+  if (!sidebar || sidebarMobileQuery.matches) {
+    return;
+  }
+
+  const spacer = document.getElementById("sidebarSpacer");
+
+  if (!spacer) {
     return;
   }
 
@@ -17,8 +24,66 @@ function syncSidebar() {
   sidebar.style.height = `${window.innerHeight - fixedTop - bottomMargin}px`;
 }
 
-window.addEventListener("resize", syncSidebar);
+function syncSidebarNotesHeight() {
+  const list = document.getElementById("sidebarNotesList");
+
+  if (!list) {
+    return;
+  }
+
+  if (sidebarMobileQuery.matches) {
+    list.style.maxHeight = "";
+    return;
+  }
+
+  const bottom = document.querySelector(".sidebar-bottom");
+
+  if (!bottom) {
+    return;
+  }
+
+  const gap = 14;
+  const available = bottom.getBoundingClientRect().top - list.getBoundingClientRect().top - gap;
+  const cap = Math.max(40, Math.min(260, available));
+
+  list.style.maxHeight = cap + "px";
+}
+
+function applySidebarLayoutMode() {
+  const sidebar = document.getElementById("sidebarFixed");
+  const spacer = document.getElementById("sidebarSpacer");
+
+  if (!sidebar || !spacer) {
+    return;
+  }
+
+  if (sidebarMobileQuery.matches) {
+    sidebar.classList.add("sidebar-inline");
+    sidebar.style.top = "";
+    sidebar.style.left = "";
+    sidebar.style.width = "";
+    sidebar.style.height = "";
+
+    if (!spacer.contains(sidebar) && sidebar.previousElementSibling !== spacer) {
+      spacer.insertAdjacentElement("afterend", sidebar);
+    }
+  } else {
+    sidebar.classList.remove("sidebar-inline");
+    syncSidebar();
+  }
+
+  syncSidebarNotesHeight();
+}
+
+window.addEventListener("resize", () => {
+  applySidebarLayoutMode();
+  syncSidebar();
+  syncSidebarNotesHeight();
+});
+
+applySidebarLayoutMode();
 syncSidebar();
+syncSidebarNotesHeight();
 
 let newsItems = [
   { text: "Nueva campaña: 20% dcto. en seguros de vida hasta fin de mes.", imageUrl: "img/noticia-ejemplo.svg" },
@@ -47,6 +112,7 @@ function renderNewsList() {
     empty.className = "sidebar-notes-empty";
     empty.textContent = "Sin noticias publicadas todavía.";
     sidebarList.appendChild(empty);
+    syncSidebarNotesHeight();
     return;
   }
 
@@ -96,6 +162,8 @@ function renderNewsList() {
 
     adminList.appendChild(adminItem);
   });
+
+  syncSidebarNotesHeight();
 }
 
 function updateNewsPhotoLabel(input) {
