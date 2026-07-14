@@ -435,8 +435,7 @@
       box-shadow: 0 4px 12px rgba(2, 41, 71, 0.18);
       display: flex;
       flex-direction: column;
-      flex: 1;
-      min-height: 0;
+      flex-shrink: 0;
     }
 
     .sidebar-notes-title {
@@ -472,8 +471,7 @@
     }
 
     .sidebar-notes-list {
-      flex: 1;
-      min-height: 0;
+      max-height: 260px;
       overflow-y: auto;
       overscroll-behavior: contain;
       scrollbar-width: thin;
